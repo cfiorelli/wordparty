@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,18 @@
     <title>Inline Autocomplete using Datamuse</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-        #shadowText {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: #ff0000;
-            z-index: -1;
+        #suggestion {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
+
 <body>
     <div style="position:relative">
         <input type="text" id="search" placeholder="Start typing...">
-        <div id="shadowText"></div>
+        <div id="suggestion"></div>
     </div>
 
     <!-- Load the necessary libraries -->
@@ -27,4 +27,5 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="autocomplete.js"></script>
 </body>
+
 </html>
