@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#search").on('keyup', function() {
         let query = $(this).val();
-        if (query.length >= 2) {  // Only fetch suggestions when 2 or more characters are typed
+        if (query.length >= 2) {
             $.ajax({
                 url: "https://api.datamuse.com/sug",
                 dataType: "jsonp",
@@ -9,18 +9,20 @@ $(document).ready(function() {
                     s: query
                 },
                 success: function(data) {
+                    // Clear previous suggestions
+                    $('#suggestions').empty();
+
                     if (data.length > 0) {
-                        // Display the word of the first suggestion below the textbox
-                        $('#suggestion').text(data[0].word);
-                    } else {
-                        // Clear the suggestion if there's no match
-                        $('#suggestion').text('');
+                        // Append each suggestion to the #suggestions div
+                        data.forEach(function(item) {
+                            $('#suggestions').append('<div class="suggestion-item">' + item.word + '</div>');
+                        });
                     }
                 }
             });
         } else {
-            // Clear the suggestion if less than 2 characters
-            $('#suggestion').text('');
+            // Clear the suggestions if less than 2 characters
+            $('#suggestions').empty();
         }
     });
 });

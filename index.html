@@ -8,10 +8,14 @@
     <title>Inline Autocomplete using Datamuse</title>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-        #suggestion {
+        #suggestions {
             margin-top: 10px;
+        }
+        
+        .suggestion-item {
             font-size: 0.9em;
             color: #666;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -19,7 +23,7 @@
 <body>
     <div style="position:relative">
         <input type="text" id="search" placeholder="Start typing...">
-        <div id="suggestion"></div>
+        <div id="suggestions"></div>
     </div>
 
     <!-- Load the necessary libraries -->
