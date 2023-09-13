@@ -13,9 +13,9 @@ $(document).ready(function() {
                     $('#suggestions').empty();
 
                     if (data.length > 0) {
-                        // Append each suggestion to the #suggestions div
+                        // Append each suggestion to the #suggestions ul as li
                         data.forEach(function(item) {
-                            $('#suggestions').append('<div class="suggestion-item">' + item.word + '</div>');
+                            $('#suggestions').append('<li>' + item.word + '</li>');
                         });
                     }
                 }

@@ -5,30 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inline Autocomplete using Datamuse</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        #suggestions {
-            margin-top: 10px;
-        }
-        
-        .suggestion-item {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-    </style>
+    <title>Basic Autocomplete using Datamuse</title>
 </head>
 
 <body>
-    <div style="position:relative">
-        <input type="text" id="search" placeholder="Start typing...">
-        <div id="suggestions"></div>
-    </div>
+    <input type="text" id="search" placeholder="Start typing...">
+    <ul id="suggestions"></ul>
 
     <!-- Load the necessary libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="autocomplete.js"></script>
 </body>
 
