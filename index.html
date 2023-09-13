@@ -5,16 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Autocomplete using Datamuse</title>
+    <title>Datamuse API Test</title>
 </head>
 
 <body>
-    <input type="text" id="search" placeholder="Start typing...">
-    <ul id="suggestions"></ul>
+    <input type="text" id="searchBox" placeholder="Start typing..." oninput="fetchSuggestions()">
+    <ul id="resultsList"></ul>
 
-    <!-- Load the necessary libraries -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="autocomplete.js"></script>
+    <script>
+        function fetchSuggestions() {
+            const searchBox = document.getElementById("searchBox");
+            const query = searchBox.value;
+
+            if (query.length > 1) {
+                fetch(`https://api.datamuse.com/sug?s=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data);
+                    })
+                    .catch(err => {
+                        console.error("Error fetching data:", err);
+                    });
+            } else {
+                clearResults();
+            }
+        }
+
+        function displayResults(data) {
+            const resultsList = document.getElementById("resultsList");
+            clearResults();  // Clear existing results
+
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item.word;
+                resultsList.appendChild(li);
+            });
+        }
+
+        function clearResults() {
+            const resultsList = document.getElementById("resultsList");
+            while (resultsList.firstChild) {
+                resultsList.removeChild(resultsList.firstChild);
+            }
+        }
+    </script>
 </body>
 
 </html>
